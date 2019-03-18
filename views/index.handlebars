@@ -1,0 +1,27 @@
+<h1>Jules Joint</h1>
+
+<h2>Available Burgers</h2>
+
+<ul>
+{{#each freshBurgers}}
+    <li>{{burgerNum}}. {{burgerName}} <button>Devour</button></li>
+    {{!-- TODO: need to build out the button and get the variable names right in the {{each}} and <li> --}}
+{{/each}}
+</ul>
+
+<h2>Devoured Burgers</h2>
+
+<ul>
+{{#each oldBurgers}}
+    <li>{{burgerNum}}. {{burgerName}}</li>
+    {{!-- TODO: need to build out the button and get the variable names right in the {{each}} and <li> --}}
+{{/each}}
+</ul>
+
+<h2>Build-a-Burger</h2>
+<input type="text" name="newBurger">
+<button>Submit</button>
+{{!-- TODO: update the field name and button --}}
+
+
+
