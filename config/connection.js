@@ -12,7 +12,7 @@ const connection = mysql.createConnection({ // use the createConnection() method
     port: 3306,
     user: "root",
     password: "uncb00tc4mp",
-    database: "burger_db"
+    database: "burgers_db"
 });
 // so far we've taken the mysql package, created a connection object with it, and named it "connection"
 // ==================================================

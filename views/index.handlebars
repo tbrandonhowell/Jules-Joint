@@ -3,25 +3,70 @@
 <h2>Available Burgers</h2>
 
 <ul>
-{{#each freshBurgers}}
-    <li>{{burgerNum}}. {{burgerName}} <button>Devour</button></li>
-    {{!-- TODO: need to build out the button and get the variable names right in the {{each}} and <li> --}}
+{{#each burgers}}
+    {{#unless devoured}}
+        <li>{{id}}. {{burger_name}} <button class="devour" id="{{id}}">Devour</button></li>
+    {{/unless}}
 {{/each}}
 </ul>
 
 <h2>Devoured Burgers</h2>
 
 <ul>
-{{#each oldBurgers}}
-    <li>{{burgerNum}}. {{burgerName}}</li>
-    {{!-- TODO: need to build out the button and get the variable names right in the {{each}} and <li> --}}
+{{#each burgers}}
+    {{#if devoured}}
+        <li>{{id}}. {{burger_name}}</li>
+    {{/if}}
 {{/each}}
 </ul>
 
 <h2>Build-a-Burger</h2>
-<input type="text" name="newBurger">
-<button>Submit</button>
-{{!-- TODO: update the field name and button --}}
+<input type="text" id="newBurger" name="newBurger">
+<button id="newBurgerButton">Submit</button>
+
+
+
+
+<script>
+// TODO: move all this stuff into the external JS file
+
+    $(".devour").on("click", function(event){ // capture the click on any of the devour buttons
+        const updateID = $(this).attr("id"); // grab the ID for use in the sql query
+        console.log("updateID = " + updateID);
+
+        // we're actually skipping this step, since all we need to do it send the ID over in the post (and we're doing that via the URL)
+        // const devourData = { // create an object of fields that will be fed into our ajax PUT request
+        //    devoured: true // in this case we're just sending over the 'devoured' flag in the body
+        // };
+
+        $.ajax("/" + updateID, { // do an ajax call
+            type: "PUT", // use the PUT method
+            // data: devourData // would normally send this if we needed to send anything more than the ID for record. But we're handling that via the PUT URL
+        }).then( () => {
+            // TODO: don't we need some sort of error checking here?
+            console.log("changed devoured status to true"); // this is kind of an assumption
+            location.reload(); // reload the page
+        });
+    });
+
+    $("#newBurgerButton").on("click", function(event){
+        const newBurger = $("#newBurger").val().trim();
+        console.log("newBurger = ", newBurger);
+        const newBurgerData = {
+            burger_name: newBurger
+        };
+    $.ajax("/", {
+        type: "POST",
+        data: newBurgerData,
+    }).then( () => {
+        console.log("created a new burger");
+        location.reload();
+    })
+    });
+
+</script>
+
+
 
 
 
