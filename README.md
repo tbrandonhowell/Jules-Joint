@@ -1,4 +1,4 @@
-# Jules Joint;
+# Jules Joint
 
 ## Project Overview
 
