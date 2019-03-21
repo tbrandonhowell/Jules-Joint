@@ -1,0 +1,30 @@
+h1.gf {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 4.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+h2.gf {
+    font-family: 'Luckiest Guy', cursive;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+h4.gf {
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 1rem;
+}
+h6.gf {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+}
+.jules {
+    height: 20vh;
+}
+.table td {
+    font-family: 'Ubuntu Mono', monospace;
+    vertical-align: middle;
+}
+.vh50 {
+    max-height: 50vh;
+    overflow:auto;
+}
