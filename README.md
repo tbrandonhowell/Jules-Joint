@@ -6,6 +6,8 @@ Jules Joint is an exercise in creating an application in the MVC pattern, with o
 
 Jules Joint was created as a homework assignment for the UNC Chapel Hill Full Stack Web Development Bootcamp, Nov. 2018 Cohort.
 
+See Jules Joint in action on Heroku: (https://jules-joint.herokuapp.com/)
+
 ## Technologies / Proficiencies
 
 Skills/technologies incorporated into this assignment:
