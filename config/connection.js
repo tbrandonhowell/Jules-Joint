@@ -7,15 +7,35 @@ const mysql = require("mysql"); // pull in the mysql package so we can use it fo
 
 // CREATE CONNECTION SPECS OBJECT
 // ==================================================
-const connection = mysql.createConnection({ // use the createConnection() method for the mysql package. we feed createConnection() an object w/ the connection parameters
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "uncb00tc4mp",
-    database: "burgers_db"
-});
+// const connection = mysql.createConnection({ // use the createConnection() method for the mysql package. we feed createConnection() an object w/ the connection parameters
+//     host: "localhost",
+//     port: 3306,
+//     user: "root",
+//     password: "uncb00tc4mp",
+//     database: "burgers_db"
+// });
 // so far we've taken the mysql package, created a connection object with it, and named it "connection"
 // ==================================================
+
+
+// CREATE CONNECTION SPECS OBJECT V2 (FOR HEROKU DB)
+// ==================================================
+const connection;
+if(process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection({ // use the createConnection() method for the mysql package. we feed createConnection() an object w/ the connection parameters
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "uncb00tc4mp",
+        database: "burgers_db"
+    });
+}
+// ==================================================
+
+
+
 
 
 // OPEN THE ACTUAL CONNECTION TO THE DB
