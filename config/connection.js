@@ -20,7 +20,7 @@ const mysql = require("mysql"); // pull in the mysql package so we can use it fo
 
 // CREATE CONNECTION SPECS OBJECT V2 (FOR HEROKU DB)
 // ==================================================
-const connection;
+var connection;
 if(process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
